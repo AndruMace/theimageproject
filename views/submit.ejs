@@ -1,0 +1,20 @@
+<% include partials/header %>
+<div id="submit">
+    <p>
+        <h4>Reminder</h4>
+        We ask that any images you submit be: 
+        <br><br>
+        1. SFW only. So no nudes, no blood or gore, etc. 
+        <br><br>
+        2. Free use, creative commons, or owned by you
+        <br><br>
+        Thank you
+    </p>
+
+    <form action="/submit" method="POST">
+        <input type="text" placeholder="Image URL" name="imageURL">
+        <button>Submit</button>
+    </form>
+</div>
+
+<% include partials/footer %>

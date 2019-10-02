@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<a class="navButtons" id="home" href="/">Home Page</a>
+
+<div id="mainContainer">
+    <div class="border">
+        <div id="imgContainer">
+            <img id="mainImg" src="<%=image.image%>">
+        </div>
+        <form action="/comment/<%=image._id%>", method="POST">
+            <textarea name="comment"></textarea>
+            <button id="comment-submit">Submit</button>
+        </form>
+        <button id="hide" onclick="showComments()">Show Comments</button>
+        <hr>
+        <%image.comments.forEach(function(comment){%>
+            <div class="comment"  style="display: none">
+                <%=comment.text%>
+                <br><br>
+                <em><span class="date">~<%=comment.published.toLocaleDateString("en-US")%></span></em>
+            </div>
+        <%})%>
+    </div>
+</div>
+
+<a class="navButtons" id="new" href="/show">Another Image</a>
+
+
+<script>
+    function showComments() {
+        var x = document.getElementsByClassName("comment");
+        console.log(x[0].style.display)
+        for (let i = 0; i < x.length; i++) {
+            if (x[i].style.display === "none") {
+                x[i].style.display = "block";
+            } else {
+                x[i].style.display = "none";
+            }
+        }
+    }   
+</script>
+
+<% include partials/footer %> 
